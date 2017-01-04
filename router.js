@@ -1,10 +1,10 @@
+var render = require("./render.js");
 
-var fs = require("fs");
 
 function home(req, res) {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.write(fs.readFileSync('index.html', {encoding: "utf8"}));
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  render.view(12, res);
   res.end();
 }
 
