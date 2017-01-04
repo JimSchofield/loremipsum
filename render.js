@@ -5,8 +5,12 @@ const encodingType = "{'encoding': 'utf8'}";
 function view(numberOfCharacters, res) {
 	var siteContent = fs.readFileSync('index.html');
 
+	siteContent += "<div class='loremText'>";
+
 	//place to merge content
-	siteContent += selectLorem(20);
+	siteContent += selectLorem(numberOfCharacters);
+
+	siteContent += "</div>";
 
 	siteContent += fs.readFileSync('footer.html');
   	res.write(siteContent, res);
@@ -15,9 +19,9 @@ function view(numberOfCharacters, res) {
 function selectLorem(numberOfCharacters) {
 	var lorem = fs.readFileSync('lorem.txt', 'utf8');
 
-	console.log(lorem);
+	lorem = lorem.slice(0, numberOfCharacters);
 
-	lorem = lorem.slice(0,numberOfCharacters);
+	lorem.replace(/[\n\r]/g, '<br>')
 
 	return lorem;
 }
