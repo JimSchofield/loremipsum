@@ -22,7 +22,6 @@
             border: 4px solid #515151;
             margin: auto;
         }
-
         .loremText{
             padding: 20px;
             margin: auto;
@@ -36,13 +35,14 @@
 <body>
     <h1>Lorem Ipsum Generator</h1>
     <p>Select how many characters you would like...</p>
-    <form action="/" method="POST">
-        <select id="pullDown">
-            <option val="20">20</option>
+    <form action="/" method="GET">
+        <select name="numberOfCharacters">
             <option val="50">50</option>
             <option val="100">100</option>
             <option val="400">400</option>
             <option val="800">800</option>
+            <option val="1600">1600</option>
+            <option val="3200">3200</option>
         </select>
         <input type="submit" value="Generate">
     </form>
